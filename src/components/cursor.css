@@ -1,0 +1,33 @@
+/* CSS content (from your provided style.css) */
+body {
+    --color-text: #fff;
+    --color-bg: #171717;
+    --color-link: #ff0000;
+    background-color: var(--color-bg);
+  }
+  
+  .cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+  
+  .cursor--small {
+    width: 8px;
+    height: 8px;
+    left: -2.5px; /* Adjust to center smaller dot */
+    top: -2.5px; /* Adjust to center smaller dot */
+    border-radius: 50%;
+    z-index: 11000;
+    background: var(--color-text);
+  }
+  
+  .cursor--canvas {
+    width: 100vw;
+    height: 100vh;
+    z-index: 12000;
+  }
+  
+  /* Add the rest of your CSS */
+  
