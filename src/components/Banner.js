@@ -57,9 +57,7 @@ export const Banner = () => {
       <Container>
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={5} className="order-1 order-md-2">
-            <div className={inView ? "animate__animated animate__zoomIn" : ""}>
-              <img src={headerImg} alt="Header Img" />
-            </div>
+           
           </Col>
           <Col xs={12} md={6} xl={7} className="order-2 order-md-1">
             <div className={inView ? "animate__animated animate__fadeIn" : ""}>

@@ -58,11 +58,7 @@ export const Contact = () => {
     <section className="contact" id="connect">
       <Container>
         <Row className="align-items-center">
-          <Col size={12} md={6}>
-            <div ref={imageRef} className={imageInView ? "animate__animated animate__zoomIn animate__slower" : ""}>
-              <img src={contactImg} alt="Contact Us" />
-            </div>
-          </Col>
+          
           <Col size={12} md={6}>
             <div ref={formRef} className={formInView ? "animate__animated animate__fadeInUp animate__slower" : ""}>
               <h2>Get In Touch</h2>

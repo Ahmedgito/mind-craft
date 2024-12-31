@@ -8,11 +8,13 @@ import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import AnimatedCursor from './components/AnimatedCursor';
+import Button from './components/Button.js'
 
 function App() {
   return (
     <div className="App">
       <AnimatedCursor/>
+      <Button/>
       <NavBar />
       <Banner />
       <Skills />
