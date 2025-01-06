@@ -43,7 +43,7 @@ const StyledWrapper = styled.div`
     transform: translate(-50%, -50%);
     height: 30px;
     width: 30px;
-    background-color: #87CEEB;
+    background-color:rgb(0, 36, 145);
     border-radius: 50%;
     transition: .6s ease;
   }

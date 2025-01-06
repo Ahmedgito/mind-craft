@@ -70,6 +70,7 @@ const StyledWrapper = styled.div`
     left: 0;
     opacity: 0;
     transform: translateY(70%);
+    color : #fff;
   }
 
   .button-bg {
@@ -112,7 +113,8 @@ const StyledWrapper = styled.div`
   }
 
   .button-bg-layer.-yellow {
-    background-color: #87ceeb;
+    background-color: #060060;
+    ;
   }
 
   .button:hover .button-inner-static {

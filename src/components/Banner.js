@@ -61,7 +61,7 @@ export const Banner = () => {
           </Col>
           <Col xs={12} md={6} xl={7} className="order-2 order-md-1">
             <div className={inView ? "animate__animated animate__fadeIn" : ""}>
-              <span className="tagline">MIND CRAFT INNOVATIONS</span>
+              <span className="tagline">MINDCRAFT INNOVATION <br/> Where creativity meets technology</span>
               <h1>
                 {`We are Innovative`}
                 <br />
@@ -70,8 +70,8 @@ export const Banner = () => {
                 </span>
               </h1>
               <p>
-                Welcome to Mindcraft Innovation, where creativity meets technology! We're a team of innovative thinkers and skilled makers, dedicated to crafting exceptional digital experiences. From building robust and responsive websites to designing intuitive mobile apps, stunning graphics, and seamless UI/UX experiences, we bring your vision to life. At Mindcraft Innovation, we're passionate about merging art and technology to deliver tailored solutions that exceed our clients' expectations.
-              </p>
+              
+Welcome to Mindcraft Innovation! We blend creativity with technology to craft exceptional digital experiences. From responsive websites and intuitive apps to stunning graphics and seamless UI/UX design, we bring your vision to life with tailored solutions that exceed expectations.</p>
               <Cbutton href="https://wa.me/923366028955?text=Thank%20You%20for%20contacting%20MindCraft%20Innovation" />
             </div>
           </Col>

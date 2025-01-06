@@ -11,7 +11,7 @@ const Button = () => {
 
 const StyledWrapper = styled.div`
   button {
-    --color: #87CEEB;
+    --color: #060060;
     font-family: inherit;
     display: inline-block;
     width: 8em;
@@ -27,7 +27,7 @@ const StyledWrapper = styled.div`
     font-size: 17px;
     border-radius: 6px;
     font-weight: 500;
-    color: var(--color);
+    color:#108cff;
   }
 
   button:before {
@@ -56,7 +56,7 @@ const StyledWrapper = styled.div`
   }
 
   button:active:before {
-    background: #87CEEB;
+    background: #108cff;
     transition: background 0s;
   }`;
 

@@ -1,9 +1,9 @@
 import { Col } from "react-bootstrap";
 
-export const ProjectCard = ({ title, description, imgUrl }) => {
+export const ProjectCard = ({ title, description, imgUrl, onImageClick }) => {
   return (
     <Col size={59} sm={6} md={4} className="d-flex justify-content-center align-items-center p-0">
-      <div className="proj-imgbx">
+      <div className="proj-imgbx" onClick={() => onImageClick(imgUrl)}>
         <img src={imgUrl} alt={title} />
         <div className="proj-txtx">
           <h4>{title}</h4>
@@ -11,5 +11,5 @@ export const ProjectCard = ({ title, description, imgUrl }) => {
         </div>
       </div>
     </Col>
-  )
-}
+  );
+};

@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import 'react-multi-carousel/lib/styles.css';
 import Card from "./Cards";
-import appdev from '../assets/img/app-development.png';
+import appdev from '../assets/img/app-development.webp';
 import uiux from '../assets/img/ui-ux.png';
 import webdev from '../assets/img/coding.png';
 import graphic from '../assets/img/web-design.png';

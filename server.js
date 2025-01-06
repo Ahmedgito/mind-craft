@@ -1,52 +1,60 @@
 const express = require("express");
-const router = express.Router();
-const cors = require("cors");
 const nodemailer = require("nodemailer");
+const cors = require("cors");
 
-// server used to send send emails
-const app = express();
+const app = express();  
+const router = express.Router();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
 
+// Nodemailer Setup
 const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
-    user: "********@gmail.com",
-    pass: ""
+    user: "innovationmindcraft@gmail.com",
+    pass: "MuqeemAskari.",
   },
 });
 
 contactEmail.verify((error) => {
   if (error) {
-    console.log(error);
+    console.log("Email Setup Error:", error);
   } else {
-    console.log("Ready to Send");
+    console.log("Email Service Ready");
   }
 });
 
+// API Route
 router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
+  const name = `${req.body.firstName} ${req.body.lastName}`;
   const email = req.body.email;
-  const message = req.body.message;
   const phone = req.body.phone;
+  const message = req.body.message;
+
   const mail = {
     from: name,
-    to: "********@gmail.com",
+    to: "innovationmindcraft@gmail.com", // Replace with your email to receive messages
     subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
+    html: `<p><strong>Name:</strong> ${name}</p>
+           <p><strong>Email:</strong> ${email}</p>
+           <p><strong>Phone:</strong> ${phone}</p>
+           <p><strong>Message:</strong><br>${message}</p>`,
   };
+
   contactEmail.sendMail(mail, (error) => {
     if (error) {
-      res.json(error);
+      console.error("Email Error:", error);
+      res.status(500).json({ code: 500, status: "Failed to send message" });
     } else {
-      res.json({ code: 200, status: "Message Sent" });
+      console.log("Email Sent Successfully");
+      res.status(200).json({ code: 200, status: "Message Sent" });
     }
   });
 });
+
+// Start Server
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

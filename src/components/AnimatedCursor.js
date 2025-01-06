@@ -1,9 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./cursor.css";
 import paper from "paper";
 
 const AnimatedCursor = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    // Check for mobile devices based on screen width
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check and add event listener for resizing
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    // If the device is mobile, we do not need to run the cursor animation
+    if (isMobile) return;
+
     // Cursor position tracking
     let clientX = -100, clientY = -100;
     const innerCursor = document.querySelector(".cursor--small");
@@ -25,16 +46,16 @@ const AnimatedCursor = () => {
 
     initCursor();
 
-    // Initialize Canvas
+    // Initialize Canvas for animated cursor
     const canvas = document.querySelector(".cursor--canvas");
     if (canvas) {
       const shapeBounds = { width: 10, height: 10 }; // Reduced size
       paper.setup(canvas);
 
       const polygon = new paper.Path.RegularPolygon(new paper.Point(0, 0), 8, 15); // Smaller radius
-      polygon.strokeColor = new paper.Color("#87CEEB"); // Light Sky Blue color
+      polygon.strokeColor = new paper.Color("#0d00bd"); // Light Sky Blue color
       polygon.strokeWidth = 3; // Slightly thinner stroke
-      polygon.shadowColor = new paper.Color("#87CEEB"); // Add shadow glow with the same color
+      polygon.shadowColor = new paper.Color("#1100ff"); // Add shadow glow with the same color
       polygon.shadowBlur = 15; // Glow intensity
       polygon.smooth();
 
@@ -53,12 +74,16 @@ const AnimatedCursor = () => {
       // Cleanup event listeners
       document.removeEventListener("mousemove", initCursor);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div>
-      <div className="cursor cursor--small"></div>
-      <canvas className="cursor cursor--canvas"></canvas>
+      {!isMobile && (
+        <>
+          <div className="cursor cursor--small"></div>
+          <canvas className="cursor cursor--canvas"></canvas>
+        </>
+      )}
     </div>
   );
 };
